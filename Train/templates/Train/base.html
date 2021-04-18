@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" {% load static %} <head>
+{% block head %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'Train/Css/style.css' %}">
+<link rel="stylesheet" href="{% static 'Train/Javascript/script.js' %}">
+<link rel="shortcut icon" type="image/jpg" href="{% static 'Train/Images/Train Logo.PNG' %}" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Railway Enquiry System</title>
+{% endblock head %}
+{% block css %}{% endblock css %}
+<style>
+    .hello {
+        font-size: 25px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <img id="logo" src="{% static 'Train/Images/Train Logo.PNG' %}" alt="Logo of Train">
+                        <a class="navbar-brand" href="{% url 'Home' %}">RRES</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"><i class="fa fa-navicon"
+                                    style="color:#fff; font-size:28px;"></i></span>
+                        </button>
+                        <div style="margin-left: 20px;" class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        href="{% url 'Enquiry' %}">Enquiry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'Status' %}">Status</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'PnrCheck' %}">PNR
+                                        Check</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'Contact' %}" tabindex="-1"
+                                        aria-disabled="true">Contact</a>
+                                </li>
+                                {% if request.user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'Logout' %}">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'Login' %}">Login</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            {% block welcome %}
+                            {% if request.user.is_authenticated %}
+                            <span class="hello btn btn-outline-danger">Welcome, {{ request.user.first_name }} !!</span>
+                            {% endif %}
+                            {% endblock welcome %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            {% block div %}
+            <div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img height="550px" src="{% static 'Train/Images/Railway1.jpeg' %}" class="d-block w-100"
+                                alt="Image of Train">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="550px" src="{% static 'Train/Images/Railway13.jpeg' %}" class="d-block w-100"
+                                alt="Image of Train">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="550px" src="{% static 'Train/Images/Railway4.jpg' %}" class="d-block w-100"
+                                alt="Image of Train">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="info-1">
+                    <h2>Railway Enquiry System</h2>
+                    <p class="railway-info" style="text-align: justify;">
+                        Indian Railway Enquiry
+                        Indian Railways, often described as the "transport lifeline of the nation", is the fourth
+                        largest
+                        railway network in the world, has over 70,000 passenger coaches and more than 11,000
+                        locomotives.
+                        From
+                        suburbs to urban transit, the Indian rail network covers the length and breadth of the country.
+                        To
+                        make
+                        your journeys easier and memorable, NDTV Rail Beeps will help you track train numbers and names,
+                        PNR
+                        statuses, Live Train Running Status and information about Train Between Stations at the click of
+                        a
+                        button.
+
+                        The services offered by NDTV Rail Beeps are in real time and detailed.
+
+                        To track Live PNR Status, all you need to do is to enter your PNR number on the search bar of
+                        the
+                        page.
+                        It will then reflect the PNR status of your ticket.
+                        The PNR status has information about the booking status - Confirmed, Waiting list (WL) or
+                        Reservation
+                        Against Cancellation (RAC) - apart from basic information on arrival and departure time of
+                        trains.
+                        The
+                        PNR status also has details of the coach and seat number and the amount paid by the passenger,
+                        among
+                        other details.
+                    </p>
+                    <p class="railway-info" style="text-align: justify;">
+                        The LIVE Train Running Status can be checked on the page. With LIVE Train Running Status enquiry
+                        one
+                        can
+                        find the current train running status, train running information, the current location of your
+                        train,
+                        its late status, the platform number it arrives at and expected time of arrival and departure.
+
+                        Another exclusive feature on NDTV Rail beeps is that it helps you track Trains Between Stations
+                        on
+                        the
+                        page, where it offers details on the number of trains running between the stations, its
+                        operative
+                        days,
+                        timings (departure and arrival time) and total travel time among other details.
+
+                        With the increasing demand of getting information at one’s fingertips, NDTV Rail Beeps is the
+                        single
+                        stop for all train-related enquires and that too in a simple and completely hassle-free way.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="info-2">
+                    <ul style="text-align: justify;">
+                        <p style="font-weight: bold;">E-Ticket Booking Application Development for a leading luxury
+                            coach operator in India to
+                            enable
+                            customers to reserve their tickets online easily and securely!</p>
+                        <li>Easy and Convenient Booking</li>
+                        <li>Manage Reservations and Seating Effectively</li>
+                        <li>Safe and Secure Payment Gateway Module</li>
+                        <li>Detail Reports for Managing Trips</li>
+                        <li>Easy and Convenient Booking</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <!-- Footer -->
+                    <footer class="bg-light text-center text-lg-start">
+                        <!-- Grid container -->
+                        <div class="container p-4">
+                            <!--Grid row-->
+                            <div class="row">
+                                <!--Grid column-->
+                                <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                                    <h5 style="font-weight: bold;font-size: 30px;margin-left: 20px;">REGex Developers
+                                    </h5>
+
+                                    <p>
+                                    <ul style="list-style: none;">
+                                        <li>Ayushi Mittal</li>
+                                        <li>Rohit Gusinge</li>
+                                        <li>Ashish Patil</li>
+                                        <li>Atash Shaikh</li>
+                                        <li>Anant Koshal</li>
+                                    </ul>
+                                    </p>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                    <h5 style="font-weight: bold;font-size: 30px;">
+                                        <i style="padding: 4px;" class="fa fa-facebook-official" aria-hidden="true"></i>
+                                        <i style="padding: 4px;" class="fa fa-instagram" aria-hidden="true"></i>
+                                        <i style="padding: 4px;" class="fa fa-twitter" aria-hidden="true"></i>
+                                        <i style="padding: 4px;" class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </h5>
+
+                                    <ul class="list-unstyled footer-content">
+                                        <li>
+                                            <a href="./index.html" class="footer-nav">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="./about.html" class="footer-nav">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="./login.html" class="footer-nav">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="./register.html" class="footer-nav">Register</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+                        </div>
+                        <!-- Grid container -->
+
+                        <!-- Copyright -->
+                        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                            © 2020 Copyright:
+                            <a class="text-dark" href="https://mdbootstrap.com/">RailwayEnquirySystem.com</a>
+                        </div>
+                        <!-- Copyright -->
+                    </footer>
+                    <!-- Footer -->
+                </div>
+            </div>
+            {% endblock div %}
+        </div>
+        {% block section %}
+        {% endblock section %}
+    </div>
+    {% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    {% endblock script %}
+</body>
+
+</html>

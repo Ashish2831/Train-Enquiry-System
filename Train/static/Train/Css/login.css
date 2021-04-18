@@ -1,0 +1,99 @@
+html,
+body {
+    background-image: url('../Images/Railway6.jpeg');
+    background-color: gray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: fit-content;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.navbar-brand {
+    color: aqua;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.navbar {
+    color: white;
+    border-radius: 10px;
+}
+
+.nav-item {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgb(243, 7, 7);
+    transition: all 0.5s linear;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+    margin: 0px 15px;
+    border-radius: 10px;
+}
+
+.container-fluid {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #ffc312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+}

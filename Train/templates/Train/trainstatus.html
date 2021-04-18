@@ -1,0 +1,108 @@
+{% extends 'Train/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'Train/Css/trainstatus.css' %}">
+{% endblock css %}
+
+{% block welcome %}{% endblock welcome %}
+
+{% block div %}
+<div class="table-users mt-5">
+    <div class="header">Train Status</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Start Date</th>
+            <th>Train Number</th>
+            <th>Current Position</th>
+            <th>Message</th>
+        </tr>
+        {% if details %}
+        <tr>
+            <td>{{ details.StartDate }}</td>
+            <td>{{ details.TrainNumber }}</td>
+            {% if details.CurrentPosition %}
+            <td>{{ details.CurrentPosition }}</td>
+            {% else %}
+            <td> - </td>
+            {% endif %}
+            <td>{{ details.Message }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td COLSPAN="7" class="text-center">Train Number Does Not Exist.</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+
+{% if details.CurrentStation %}
+<div style="width: 100%;" class="table-users mt-5">
+    <div class="header">Current Station</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Serial No</th>
+            <th>Station Name</th>
+            <th>Station Code</th>
+            <th>Distance</th>
+            <th>Is Departed</th>
+            <th>Day</th>
+            <th>Schedule Arrival</th>
+            <th>Actual Arrival</th>
+            <th>Delay In Arrival</th>
+            <th>Schedule Departure</th>
+            <th>Actual Departure</th>
+            <th>Delay In Departure</th>
+        </tr>
+        <tr>
+            <td>{{ details.CurrentStation.SerialNo }}</td>
+            <td>{{ details.CurrentStation.StationName }}</td>
+            <td>{{ details.CurrentStation.StationCode }}</td>
+            <td>{{ details.CurrentStation.Distance }}</td>
+            <td>{{ details.CurrentStation.IsDeparted }}</td>
+            <td>{{ details.CurrentStation.Day }}</td>
+            <td>{{ details.CurrentStation.ScheduleArrival }}</td>
+            <td>{{ details.CurrentStation.ActualArrival }}</td>
+            <td>{{ details.CurrentStation.DelayInArrival }}</td>
+            <td>{{ details.CurrentStation.ScheduleDeparture }}</td>
+            <td>{{ details.CurrentStation.ActualDeparture }}</td>
+            <td>{{ details.CurrentStation.DelayInDeparture }}</td>
+        </tr>
+    </table>
+</div>
+{% endif %}
+
+{% if details.TrainRoute %}
+<div style="width: 100%;" class="table-users mt-5">
+    <div class="header">Train Route</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Serial No.</th>
+            <th>Station Name</th>
+            <th>Station Code</th>
+            <th>Day</th>
+            <th>Schedule Arrival</th>
+            <th>Actual Arrival</th>
+            <th>Delay In Arrival</th>
+            <th>Schedule Departure</th>
+            <th>Actual Departure</th>
+            <th>Delay In Departure</th>
+        </tr>
+        {% for route in details.TrainRoute %}
+        <tr>
+            <td>{{ route.SerialNo }}</td>
+            <td>{{ route.StationName }}</td>
+            <td>{{ route.StationCode }}</td>
+            <td>{{ route.Day }}</td>
+            <td>{{ route.ScheduleArrival }}</td>
+            <td>{{ route.ActualArrival }}</td>
+            <td>{{ route.DelayInArrival }}</td>
+            <td>{{ route.ScheduleDeparture }}</td>
+            <td>{{ route.ActualDeparture }}</td>
+            <td>{{ route.DelayInDeparture }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock div %}

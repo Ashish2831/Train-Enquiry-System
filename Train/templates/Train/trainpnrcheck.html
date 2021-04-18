@@ -1,0 +1,64 @@
+{% extends 'Train/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'Train/Css/trainstatus.css' %}">
+{% endblock css %}
+
+{% block welcome %}{% endblock welcome %}
+
+{% block div %}
+<div style="width: 100%;" class="table-users mt-5">
+    <div class="header">PNR Check</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Status</th>
+            <th>PNR Number</th>
+            <th>Train Number</th>
+            <th>Train Name</th>
+            <th>Journey Class</th>
+            <th>Chat Prepared</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Journey Date</th>
+        </tr>
+        {% if details %}
+        <tr>
+            <td>{{ details.Status }}</td>
+            <td>{{ details.PnrNumber }}</td>
+            <td>{{ details.TrainNumber }}</td>
+            <td>{{ details.TrainName }}</td>
+            <td>{{ details.JourneyClass }}</td>
+            <td>{{ details.ChatPrepared }}</td>
+            <td>{{ details.From }}</td>
+            <td>{{ details.To }}</td>
+            <td>{{ details.JourneyDate }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td COLSPAN="7" class="text-center">Train Number Does Not Exist.</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+
+{% if details.Passangers %}
+<div style="width: 800px;" class="table-users mt-5">
+    <div class="header">Passengers</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Passenger</th>
+            <th>Booking Status</th>
+            <th>Current Status</th>
+        </tr>
+        {% for Passenger in details.Passangers %}
+        <tr>
+            <td>{{ Passenger.Passenger }}</td>
+            <td>{{ Passenger.BookingStatus }}</td>
+            <td>{{ Passenger.CurrentStatus }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock div %}

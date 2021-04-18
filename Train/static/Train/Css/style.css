@@ -1,0 +1,81 @@
+body{
+    background-color: gray;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.navbar{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.footer-nav{
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.footer-nav:hover{
+    color:rgb(243, 7, 7);
+    transition: all 0.5s linear;
+}
+
+#logo{
+    width: 50px;
+    height: 50px;
+    margin: 0px 15px;
+}
+
+.navbar-brand{
+    color:aqua;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.nav-item{
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.nav-link{
+    color:white;
+}
+
+.nav-link:hover{
+    color:rgb(250, 8, 8);
+    transition: all 0.5s linear;
+}
+
+img{
+    border-radius: 10px;
+}
+
+li{
+    margin-left: 50px;
+}
+
+.info-1{
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+
+.info-2{
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.railway-info{
+    text-indent: 45px;
+}
+
+footer{
+    border-radius: 10px;
+}

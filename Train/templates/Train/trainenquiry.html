@@ -1,0 +1,66 @@
+{% extends 'Train/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'Train/Css/trainstatus.css' %}">
+{% endblock css %}
+
+{% block welcome %}{% endblock welcome %}
+
+{% block div %}
+<div class="table-users mt-5">
+    <div class="header">Train Enquiry</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Status</th>
+            <th>Total Trains</th>
+            <th>Message</th>
+        </tr>
+        {% if details %}
+        <tr>
+            <td>{{ details.Status }}</td>
+            <td>{{ details.TotalTrains }}</td>
+            {% if details.Message %}
+            <td>{{ details.Message }}</td>
+            {% else %}
+            <td> - </td>
+            {% endif %}
+        </tr>
+        {% else %}
+        <tr>
+            <td COLSPAN="7" class="text-center">Train Number Does Not Exist.</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+
+{% if details.Trains %}
+<div style="width: 100%;" class="table-users mt-5">
+    <div class="header">Total Trains</div>
+    <table class="table table-hover" cellspacing="0">
+        <tr>
+            <th>Trains No.</th>
+            <th>Trains Name</th>
+            <th>Source</th>
+            <th>Arrival Time</th>
+            <th>Destination</th>
+            <th>Departure Time</th>
+            <th>Travel Time</th>
+            <th>Train Type</th>
+        </tr>
+        {% for Train in details.Trains %}
+        <tr>
+            <td>{{ Train.TrainNo }}</td>
+            <td>{{ Train.TrainName }}</td>
+            <td>{{ Train.Source }}</td>
+            <td>{{ Train.ArrivalTime }}</td>
+            <td>{{ Train.Destination }}</td>
+            <td>{{ Train.DepartureTime }}</td>
+            <td>{{ Train.TravelTime }}</td>
+            <td>{{ Train.TrainType }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock div %}

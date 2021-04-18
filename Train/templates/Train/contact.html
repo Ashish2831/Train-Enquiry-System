@@ -1,0 +1,139 @@
+{% extends 'Train/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="{% static 'Train/Css/contact.css' %}" />
+<link rel="shortcut icon" type="image/jpg" href="{% static 'Train/Images/Train Logo.PNG' %}" />
+<title>Contact</title>
+{% endblock head %}
+
+{% block welcome %}{% endblock welcome %}
+
+{% block div %}
+
+{% endblock div %}
+
+{% block section %}
+<section style="background-image: url({% static 'Train/Images/Railway7.jpeg' %});" class="ftco-section img bg-hero col-lg-12">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Contact Us</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="wrapper">
+                    <div class="row no-gutters justify-content-between">
+                        <div class="col-lg-6 d-flex align-items-stretch">
+                            <div class="info-wrap w-100 p-5">
+                                <h3 class="mb-4">Contact us</h3>
+                                <div class="dbox w-100 d-flex align-items-start">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-map-marker"></span>
+                                    </div>
+                                    <div class="text pl-4">
+                                        <p>
+                                            <span>Address:</span>Contact Us Only in Working Hours,
+                                            Don't Spam!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-start">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-phone"></span>
+                                    </div>
+                                    <div class="text pl-4">
+                                        <p>
+                                            <span>Phone:</span>
+                                            <a href="tel://1234567920">+ 1235 2355 98</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-start">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-paper-plane"></span>
+                                    </div>
+                                    <div class="text pl-4">
+                                        <p>
+                                            <span>Email:</span>
+                                            <a href="mailto:info@yoursite.com">info@yoursite.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-start">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-globe"></span>
+                                    </div>
+                                    <div class="text pl-4">
+                                        <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Get in touch</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                <div id="form-message-success" class="mb-4">
+                                    Your message was sent, Thank You!
+                                </div>
+                                <form method="POST" id="contactForm" name="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="name" id="name"
+                                                    placeholder="Name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" name="email" id="email"
+                                                    placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="subject" id="subject"
+                                                    placeholder="Subject" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea name="message" class="form-control" id="message" cols="30"
+                                                    rows="5" placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="submit" value="Send Message" class="btn btn-primary" />
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock section %}
+
+{% block script %}
+<script src="{% static 'Train/Javascript/jquery.min.js' %}"></script>
+<script src="{% static 'Train/Javascript/popper.js' %}"></script>
+<script src="{% static 'Train/Javascript/bootstrap.min.js' %}"></script>
+<script src="{% static 'Train/Javascript/jquery.validate.min.js' %}"></script>
+<script src="{% static 'Train/Javascript/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+{% endblock script %}
